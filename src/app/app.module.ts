@@ -8,6 +8,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { GithubProfileComponent } from './github-profile/github-profile.component';
 import { PostsComponent } from './posts/posts.component';
 import { GithubFollowersComponent } from './github-followers/github-followers.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { GithubFollowersService } from './services/github-followers.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -16,19 +19,23 @@ import { GithubFollowersComponent } from './github-followers/github-followers.co
     NotFoundComponent,
     GithubProfileComponent,
     PostsComponent,
-    GithubFollowersComponent
+    GithubFollowersComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
-      { path: 'followers/:useranem', component: GithubProfileComponent },
+      { path: 'followers/:username', component: GithubProfileComponent },
       { path: 'followers', component: GithubFollowersComponent },
       { path: 'posts', component: PostsComponent },
       { path: '**', component: NotFoundComponent },
     ])
   ],
-  providers: [],
+  providers: [
+    GithubFollowersService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
