@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { GithubFollowersService } from '../services/github-followers.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/combineLatest';
-import 'rxjs/add/operator/add';
+import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
